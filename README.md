@@ -5,7 +5,7 @@ CESRG is a project that expands the capabilities of Webots. It provides a web ap
 
 
 Installation:
-* If you do not have Webots already installed, visit https://cyberbotics.com/doc/guide/installing-webots and follow the steps of how to install Webots for Windows. 
+* If you do not have Webots already installed, visit https://github.com/cyberbotics/webots/releases/tag/R2021a and follow the steps of how to install Webots for Windows (you have to use this version of webots as the latest version has start up errors). 
   * Once webots is installed, visit https://cyberbotics.com/doc/guide/using-python#windows-installation and follow the steps on how to set up python
   * You **have to** add the C:\Program Files\Webots\msys64\mingw64\bin to the PATH enviroment variable (under system variables). If you do not kow how to do tihs follow the instructions on https://docs.microsoft.com/en-us/previous-versions/office/developer/sharepoint-2010/ee537574(v=office.14)
   * If you installed in a different location, add that path instead.
