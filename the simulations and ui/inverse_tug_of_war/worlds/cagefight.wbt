@@ -1,0 +1,240 @@
+#VRML_SIM R2021a utf8
+WorldInfo {
+  coordinateSystem "NUE"
+  contactProperties [
+    ContactProperties {
+      material1 "cage"
+      material2 "ROBOT_2"
+      bounce 0
+    }
+    ContactProperties {
+      material1 "cage"
+      material2 "ROBOT_1"
+      bounce 0
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.43824402445664146 0.8470935786262649 0.30062375833954724 1.361371901997807
+  position 7.15773870098916 6.661499995349065 2.5235397275079348
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+DEF WALL_1 Solid {
+  translation 0.05 0.08 2.05
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.27451 0.27451 0.27451
+        metalness 0
+        IBLStrength 0
+      }
+      geometry DEF WALL Box {
+        size 4.1 0.4 0.1
+      }
+    }
+  ]
+  boundingObject USE WALL
+}
+DEF WALL_2 Solid {
+  translation 2.05 0.08 -0.05
+  rotation 0 1 0 -1.5707953071795862
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.27451 0.27451 0.27451
+        metalness 0
+        IBLStrength 0
+      }
+      geometry DEF WALL Box {
+        size 4.1 0.4 0.1
+      }
+    }
+  ]
+  name "solid(8)"
+  boundingObject USE WALL
+}
+DEF WALL_3 Solid {
+  translation -0.05 0.08 -2.05
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.27451 0.27451 0.27451
+        metalness 0
+        IBLStrength 0
+      }
+      geometry DEF WALL Box {
+        size 4.1 0.4 0.1
+      }
+    }
+  ]
+  name "solid(9)"
+  boundingObject USE WALL
+}
+DEF WALL_4 Solid {
+  translation -2.05 0.08 0.05
+  rotation 0 1 0 -1.5707953071795862
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.27451 0.27451 0.27451
+        metalness 0
+        IBLStrength 0
+      }
+      geometry DEF WALL Box {
+        size 4.1 0.4 0.1
+      }
+    }
+  ]
+  name "solid(10)"
+  boundingObject USE WALL
+}
+Floor {
+  appearance Parquetry {
+    type "light strip"
+  }
+}
+DEF ROBOT_1 Pioneer3at {
+  translation 1.05775 0.21 1.57104
+  rotation 0 -1 0 -5.307179586466759e-06
+  controller "adam_cage_fight"
+}
+DEF ROBOT_2 Pioneer3at {
+  translation -1.05939 0.21 -1.04525
+  rotation 0 1 0 3.14159
+  name "Pioneer 3-AT(1)"
+  controller "adam_cage_fight"
+}
+DEF supervisor Robot {
+  translation -2.9 0.511 2.62036e-06
+  rotation 0 1 0 -1.5707953071795862
+  children [
+    Koala {
+      controller "cage_fight_supervisor_t"
+      supervisor TRUE
+    }
+  ]
+  controller ""
+}
+DEF cage Solid {
+  translation -2.9 0 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 1 0.498039
+        metalness 0
+        IBLStrength 0
+      }
+      geometry Cylinder {
+        height 1
+        radius 0.1
+      }
+    }
+  ]
+  name "solid(2)"
+}
+DEF stage Solid {
+  translation 0 0.04 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.333333 0.333333 1
+        metalness 0
+        IBLStrength 0
+      }
+      geometry DEF CageFigthFloor Box {
+        size 4 0.1 4
+      }
+      castShadows FALSE
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE CageFigthFloor
+}
+DEF stage Solid {
+  translation -2.9 0.48 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.666667 0 0
+        metalness 0
+        IBLStrength 0
+      }
+      geometry DEF sumostage Cylinder {
+        height 0.06
+        radius 0.3
+      }
+    }
+  ]
+  name "solid(3)"
+}
+DEF DEATHZONE_1 Solid {
+  translation 1.6 0.11 1.6
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.666667 0 0
+        metalness 0
+        IBLStrength 0
+      }
+      geometry DEF death_zone Plane {
+        size 0.4 0.4
+      }
+      castShadows FALSE
+    }
+  ]
+  name "solid(4)"
+}
+DEF DEATHZONE_2 Solid {
+  translation -1.6 0.11 1.6
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.666667 0 0
+        metalness 0
+        IBLStrength 0
+      }
+      geometry DEF death_zone Plane {
+        size 0.4 0.4
+      }
+      castShadows FALSE
+    }
+  ]
+  name "solid(5)"
+}
+DEF DEATHZONE_3 Solid {
+  translation -1.6 0.11 -1.6
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.666667 0 0
+        metalness 0
+        IBLStrength 0
+      }
+      geometry DEF death_zone Plane {
+        size 0.4 0.4
+      }
+      castShadows FALSE
+    }
+  ]
+  name "solid(6)"
+}
+DEF DEATHZONE_4 Solid {
+  translation 1.6 0.11 -1.6
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.666667 0 0
+        metalness 0
+        IBLStrength 0
+      }
+      geometry DEF death_zone Plane {
+        size 0.4 0.4
+      }
+      castShadows FALSE
+    }
+  ]
+  name "solid(7)"
+}
