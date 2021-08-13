@@ -1,0 +1,135 @@
+#VRML_SIM R2021a utf8
+WorldInfo {
+  coordinateSystem "NUE"
+  contactProperties [
+    ContactProperties {
+      material1 "sumostage"
+      material2 "ROBOT_2"
+      bounce 0
+    }
+    ContactProperties {
+      material1 "sumostage"
+      material2 "ROBOT_1"
+      bounce 0
+    }
+  ]
+}
+Viewpoint {
+  orientation 0.2910100514572564 -0.9244107137292693 -0.24653190928029564 4.799545987026542
+  position 6.718160611624586 5.421544154917015 1.7629087600021855
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+  appearance Parquetry {
+    type "light strip"
+  }
+}
+DEF ROBOT_1 Pioneer3at {
+  translation 0 1.72 1.2
+  controller "empty_robot1"
+}
+DEF ROBOT_2 Pioneer3at {
+  translation 0 1.72 -1.31
+  rotation 0 1 0 3.14159
+  name "Pioneer 3-AT(1)"
+  controller "empty_robot2"
+}
+DEF supervisor Robot {
+  translation -2.9 2.391 2.62036e-06
+  rotation 0 1 0 -1.5707953071795862
+  children [
+    Koala {
+      translation 0 -0.35 0
+      controller "sumo_supervisor_t"
+	  supervisor TRUE
+    }
+  ]
+  controller ""
+}
+Solid {
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 1 0.498039
+        metalness 0
+        IBLStrength 0
+      }
+      geometry Cylinder {
+        height 3
+        radius 0.3
+      }
+    }
+  ]
+}
+Solid {
+  translation -2.9 0 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 1 0.498039
+        metalness 0
+        IBLStrength 0
+      }
+      geometry Cylinder {
+        height 4
+        radius 0.1
+      }
+    }
+  ]
+  name "solid(2)"
+}
+DEF stage Solid {
+  translation 0 1.55 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.333333 0.333333 1
+        metalness 0
+        IBLStrength 0
+      }
+      geometry DEF sumostage Cylinder {
+        height 0.1
+        radius 2.2
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE sumostage
+}
+Solid {
+  translation -2.9 2.01 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.666667 0 0
+        metalness 0
+        IBLStrength 0
+      }
+      geometry DEF sumostage Cylinder {
+        height 0.06
+        radius 0.3
+      }
+    }
+  ]
+  name "solid(3)"
+}
+DEF DEATHZONE_1 Solid {
+  translation 0 0.75 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.666667 0 0
+        metalness 0
+        IBLStrength 0
+      }
+      geometry DEF death_zone Plane {
+        size 0.4 0.4
+      }
+      castShadows FALSE
+    }
+  ]
+  name "solid(4)"
+}
