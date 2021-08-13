@@ -1,0 +1,198 @@
+#VRML_SIM R2021a utf8
+WorldInfo {
+  coordinateSystem "NUE"
+  contactProperties [
+    ContactProperties {
+      material1 "grass"
+      material2 "football"
+      coulombFriction [
+        0
+      ]
+      bounce 1
+      bounceVelocity 1
+    }
+    ContactProperties {
+      material1 "grass"
+      material2 "ROBOT_2"
+      bounce 0
+    }
+    ContactProperties {
+      material1 "grass"
+      material2 "ROBOT_1"
+      bounce 0
+    }
+  ]
+}
+Viewpoint {
+  orientation 1 2.3736315493103052e-15 -1.5996278336063726e-15 6.062388980384689
+  position -0.019575069986188083 2.887527660022281 13.727275249227556
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+  size 100 100
+  appearance Parquetry {
+    type "light strip"
+  }
+}
+DEF goal Solid {
+  translation 0 0 -3.78
+  rotation 0 1 0 1.5708
+  scale 1.1 1.1 1.1
+  children [
+    RobotstadiumGoal {
+    }
+  ]
+}
+DEF supervisor Robot {
+  translation -2.26 0.4 0
+  rotation 0 1 0 -1.5707953071795862
+  children [
+    Koala {
+      controller "penalt_shootout_supervisor"
+      supervisor TRUE
+    }
+  ]
+  controller ""
+}
+Solid {
+  translation -2.26 0.11 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 1 0.498039
+        metalness 0
+        IBLStrength 0
+      }
+      geometry Cylinder {
+        height 0.5
+        radius 0.1
+      }
+    }
+  ]
+  name "solid(2)"
+}
+DEF grass Solid {
+  translation 0 -0.02 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0.666667 0
+        metalness 0
+        IBLStrength 0
+      }
+      geometry DEF base Box {
+        size 4 0.1 9
+      }
+      castShadows FALSE
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE base
+}
+Solid {
+  translation 0 -0.02 -4.47
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.333333 0 0
+        metalness 0
+        IBLStrength 0
+      }
+      geometry DEF CageFigthFloor Box {
+        size 4 2.3 0.1
+      }
+      castShadows FALSE
+    }
+  ]
+  name "solid(5)"
+  boundingObject USE CageFigthFloor
+}
+Solid {
+  translation -2.26 0.37 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.666667 0 0
+        metalness 0
+        IBLStrength 0
+      }
+      geometry DEF sumostage Cylinder {
+        height 0.06
+        radius 0.3
+      }
+    }
+  ]
+  name "solid(3)"
+}
+DEF DEATHZONE_1 Solid {
+  translation 0 -0.01 0.76
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.666667 0 0
+        metalness 0
+        IBLStrength 0
+      }
+      geometry DEF death_zone Plane {
+        size 0.4 0.4
+      }
+      castShadows FALSE
+    }
+  ]
+  name "solid(4)"
+}
+DEF DEATHZONE_2 Solid {
+  translation 0 -0.16 -0.78
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.666667 0 0
+        metalness 0
+        IBLStrength 0
+      }
+      geometry DEF death_zone Plane {
+        size 0.4 0.4
+      }
+      castShadows FALSE
+    }
+  ]
+  name "solid(6)"
+}
+DEF ROBOT_1 Pioneer3at {
+  translation -0.76 0.180102 3.8
+  rotation -0.9999997279659643 4.338378356372394e-05 0.000736332700004698 0.0003084285369151908
+  controller "penalt_shootout_controller"
+}
+DEF ROBOT_2 Pioneer3at {
+  translation 0.76 0.180102 3.8
+  rotation -0.9999997279659643 4.338378356372394e-05 0.000736332700004698 0.0003084285369151908
+  name "Pioneer 3-AT(1)"
+  controller "undefined"
+}
+DEF football Solid {
+  translation 0 0.3 -2.9
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "textures/cubic/football_test.jpg"
+          ]
+        }
+        metalness 0
+      }
+      geometry DEF ball Sphere {
+        radius 0.15
+      }
+    }
+  ]
+  name "solid(7)"
+  boundingObject USE ball
+  physics Physics {
+    density -1
+    mass 0.5
+  }
+}

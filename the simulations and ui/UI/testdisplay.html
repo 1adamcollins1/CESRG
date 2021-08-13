@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>CESRG</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="static/style.css">
+        <link rel="stylesheet" type="text/css" href="static/container.css">
+    </head>
+
+    <body>
+        <div class="canstick" id="canstick">
+            <div class="header">
+                <a class="logo">
+                    <img src="static/logo.png" alt="Page Logo" height="139" width="450" />
+                </a>
+                <div class="header-right">
+                    <a class="active" href="/main">
+                        <img src="static/homecover.png" alt="Home" height="139" width="225" />
+                    </a>
+                    <a href="/information">
+                        <img src="static/info.png" alt="infomation Page" height="139" width="225" />
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <br/><br/>
+            <div align="Center">
+            <h1>Welcome to Competitive Environment for Simulated Robot Games</h1>
+            <br/><br/>
+            </div>
+            <div class="row">
+                <p style="text-align:center;"><img src="static/selectSingleGame.png" alt="single game" height="84" width="600" /></p>
+            </div>
+            <div class="row">
+                <div class="col-4"></div><div class="col-6">
+                    <form action="/single-simulation" method="POST" class="formz">
+                        <select name="name" id="name">
+                            <option disabled selected value="empty_robot1"> -- Select Simulation -- </option>
+                            <option value="tugofwar">Tug Of War</option>
+                            <option value="robosumo">Robo Sumo</option>
+                            <option value="dragrace">Drag Race</option>
+                            <option value="cagefight">Cage Fight</option>
+                        </select>
+                        <select name="controller1" id="controller1ID">
+                            <option disabled selected value="empty_robot2"> -- Select Robot 1 Controller -- </option>
+                            <option value="sumo_example_one">Example 1</option>
+                            <option value="sumo_example_two">Example 2</option>
+                            <option disabled value> -- User Made Controllers -- </option>
+                        </select>
+                        <select name="controller2" id="controller2ID">
+                            <option disabled selected value> -- Select Robot 2 Controller -- </option>
+                            <option value="sumo_example_one">Example 1</option>
+                            <option value="sumo_example_two">Example 2</option>
+                            <option disabled value> -- User Made Controllers -- </option>
+                        </select>
+                        <br/><br/>
+                        <input type="submit" value="Run">
+                    </form>
+                </div>
+            </div>
+
+            <div class="row">
+                  <div align="Center">
+                    <table style="width:35%" id="scoresTable">
+                        <tr>
+                            <th>Simulation</th>
+                            <th>Controller 1</th>
+                            <th>Controller 2</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <br/>
+            <div class="row">
+                <p style="text-align:center;"><img src="static/Tournament.png" alt="tournament logo" height="84" width="400" /></p>
+            </div>
+            <div class="row">
+                <div class="col-1"></div>  <div class="col-5  ">
+                <form action="/tournament" method="POST" class="formz">
+
+                    <font size = "4">Tug Of War</font>
+                    <select name="TugOfWar1" id="TugOfWar1">
+                        <option disabled selected value="empty_robot2"> -- Select Robot 1 Controller -- </option>
+                        <option value="sumo_example_one">Example 1</option>
+                        <option value="sumo_example_two">Example 2</option>
+                        <option disabled value> -- User Made Controllers -- </option>
+                    </select>
+                    <select name="TugOfWar2" id="TugOfWar2">
+                        <option disabled selected value="empty_robot2"> -- Select Robot 1 Controller -- </option>
+                        <option value="sumo_example_one">Example 1</option>
+                        <option value="sumo_example_two">Example 2</option>
+                        <option disabled value> -- User Made Controllers -- </option>
+                    </select>
+                    <br/><br/>
+                    <font size = "4">Robo Sumo</font>
+                    <select name="RoboSumo1" id="RoboSumo1">
+                        <option disabled selected value="empty_robot2"> -- Select Robot 1 Controller -- </option>
+                        <option value="sumo_example_one">Example 1</option>
+                        <option value="sumo_example_two">Example 2</option>
+                        <option disabled value> -- User Made Controllers -- </option>
+                    </select>
+                    <select name="RoboSumo2" id="RoboSumo2">
+                        <option disabled selected value="empty_robot2"> -- Select Robot 1 Controller -- </option>
+                        <option value="sumo_example_one">Example 1</option>
+                        <option value="sumo_example_two">Example 2</option>
+                        <option disabled value> -- User Made Controllers -- </option>
+                    </select>
+                    <br/><br/>
+                    <font size = "4">Drag Race</font>
+                    <select name="DragRace1" id="DragRace1">
+                        <option disabled selected value="empty_robot2"> -- Select Robot 1 Controller -- </option>
+                        <option value="sumo_example_one">Example 1</option>
+                        <option value="sumo_example_two">Example 2</option>
+                        <option disabled value> -- User Made Controllers -- </option>
+                    </select>
+                    <select name="DragRace2" id="DragRace2">
+                        <option disabled selected value="empty_robot2"> -- Select Robot 1 Controller -- </option>
+                        <option value="sumo_example_one">Example 1</option>
+                        <option value="sumo_example_two">Example 2</option>
+                        <option disabled value> -- User Made Controllers -- </option>
+                    </select>
+                    <br/><br/>
+                    <font size = "4">Cage Fight</font>
+                    <select name="CageFight1" id="CageFight1">
+                        <option disabled selected value="empty_robot2"> -- Select Robot 1 Controller -- </option>
+                        <option value="sumo_example_one">Example 1</option>
+                        <option value="sumo_example_two">Example 2</option>
+                        <option disabled value> -- User Made Controllers -- </option>
+                    </select>
+                    <select name="CageFight2" id="CageFight2">
+                        <option disabled selected value="empty_robot2"> -- Select Robot 1 Controller -- </option>
+                        <option value="sumo_example_one">Example 1</option>
+                        <option value="sumo_example_two">Example 2</option>
+                        <option disabled value> -- User Made Controllers -- </option>
+                    </select>
+                    <br/><br/>
+                    <input type="submit" value="Run">
+                </form>
+                </div>
+                <div class="col-5 ">
+                  <div align="Center" id="tournamentResultsDiv">
+                    <table style="width:100%" id="tournamentTable">
+                        <tr>
+                            <th>Simulation</th>
+                            <th>Controller 1</th>
+                            <th>Controller 2</th>
+                        </tr>
+                        <tr>
+                            <th>Tug Of War</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <th>Robo Sumo</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <th>Drag Race</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <th>Cage Fight</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </table>
+                </div>
+                <br/>
+                <input type="button" value="Print" onclick="printDiv()">
+                </div>
+            </div>
+            <br/>
+            <div align="Center">
+                <h1>About the system</h1>
+                </div>
+                <div class="row">
+                <div class="col-2"></div>
+                <div class="col-7">
+                    <p>System allows users to either compete in one game at a time or compete in a tournament. There are 4 suggested games and they vary in difficulty: Cage Fight, Robo Sumo, Inverse Tug of War and Drag Race. The number of rounds for each game linked to the complexity of each one.</p>
+                </div>
+            </div>
+            <footer>
+                <div class="row header">
+                    <div class="col-4">
+                        <p >
+                            <font size = "5">Created By Adam Collins</font>
+                        </p>
+                    </div>
+                    <div class="col-2">
+                        <p>
+                            <font size = "5">Social Media</font><br>
+                            <a href="https://www.facebook.com/profile.php?id=100006628788401">Facebook</a><br>
+                            <a href="https://instagram.com/adamthecollins?igshid=e9n7arpcbkge">Instagram</a>
+                        </p>
+                    </div>
+                    <div class="col-2">
+                        <p>
+                            <font size = "5">Contact</font><br>
+                            <a >07592738027</a><br>
+                            <a >collina3@aston.ac.uk</a><br>
+                            <a>adamcollins31@gmail.com</a>
+                        </p>
+                    </div>
+                    <div class="col-2">
+                        <p>
+                            <font size = "5">Site Map</font><br>
+                            <a href="/main">Home</a><br>
+                            <a href="/information">Infomation Page</a>
+                        </p>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+        <script>
+
+            var allControllers = "<%= controllers %>";
+            var arrayC = allControllers.split(",");
+            const selectArray = [];
+            selectArray[0] = document.getElementById('controller1ID');
+            selectArray[1] = document.getElementById('controller2ID');
+            selectArray[2] = document.getElementById('TugOfWar1');
+            selectArray[3] = document.getElementById('TugOfWar2');
+            selectArray[4] = document.getElementById('RoboSumo1');
+            selectArray[5] = document.getElementById('RoboSumo2');
+            selectArray[6] = document.getElementById('DragRace1');
+            selectArray[7] = document.getElementById('DragRace2');
+            selectArray[8] = document.getElementById('CageFight1');
+            selectArray[9] = document.getElementById('CageFight2');
+
+            arrayC.forEach(controller => {
+                console.log(controller);
+                selectArray.forEach(select => {
+                    var opt = document.createElement('option');
+                    opt.value = controller;
+                    opt.innerHTML = controller;
+                    select.appendChild(opt);
+                });
+            });
+
+            var allScores = String("<%= scores %>");
+            var arrayS = allScores.split("\n");
+            arrayS.forEach(row => {
+                var rowS = row.split(",");
+                console.log(rowS);
+                if (rowS[2]){
+                    var table = document.getElementById("scoresTable");
+                    var row = table.insertRow(1);
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    var cell3 = row.insertCell(2);
+                    cell1.innerHTML = rowS[0];
+                    cell2.innerHTML = rowS[1];
+                    cell3.innerHTML = rowS[2];
+                    console.log(rowS[3]);
+                    if (rowS[3] == 1){
+                        cell2.style.backgroundColor = "lightGreen";
+                    }
+                    if (rowS[3] == 2){
+                        cell3.style.backgroundColor = "lightGreen";
+                    }
+                    if (rowS[3] == 3){
+                        cell2.style.backgroundColor = "lightGreen";
+                        cell3.style.backgroundColor = "lightGreen";
+                    }
+                    if (rowS[3] == 4){
+                        cell2.style.backgroundColor = "red";
+                        cell3.style.backgroundColor = "red";
+                    }
+              }
+            });
+
+            var allTournament = String("<%= tournament %>");
+            var arrayT = allTournament.split("\n");
+            var rowY = 0;
+            arrayT.forEach(row => {
+                var rowS = row.split(",");0.
+                if (rowS[2]){
+                    var table = document.getElementById("tournamentTable");
+                    table.rows[rowY].cells[1].innerHTML = rowS[0];
+                    table.rows[rowY].cells[2].innerHTML = rowS[1]
+                    if (rowS[2] == 1){
+                        table.rows[rowY].cells[1].style.backgroundColor = "lightGreen";
+                    }
+                    if (rowS[2] == 2){
+                        table.rows[rowY].cells[2].style.backgroundColor = "lightGreen";
+                    }
+                    if (rowS[2] == 3){
+                        table.rows[rowY].cells[1].style.backgroundColor = "lightGreen";
+                        table.rows[rowY].cells[2].style.backgroundColor = "lightGreen";
+                    }
+                    if (rowS[2] == 4){
+                        table.rows[rowY].cells[1].style.backgroundColor = "red";
+                        table.rows[rowY].cells[2].style.backgroundColor = "red";
+                    }
+              }
+              rowY = rowY + 1;
+            });
+
+            function printDiv() {
+                var divContents = document.getElementById("tournamentResultsDiv").innerHTML;
+                var a = window.open('', '', 'height=500, width=500');
+                a.document.write('<html>');
+                a.document.write('<body > <h1>The Results of the Tournament Are: <br>');
+                a.document.write(divContents);
+                a.document.write('</body></html>');
+                a.document.close();
+                a.print();
+                a.close();
+            }
+        </script>
+    </body>
