@@ -1,0 +1,5 @@
+\nsumo_example_one, move_forward, 1 
+\nsumo_example_one, sumo_example_two, 2 
+\nmove_forward, adam_cage_fight, 1 
+\nadam_cage_fight, adam_cage_fight, 4
+\nsumo_example_one, sumo_example_two, 1 
